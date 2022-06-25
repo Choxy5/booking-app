@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './style.css';
+import 'react-date-range/dist/styles.css';
+import 'react-date-range/dist/theme/default.css';
 import {
   faBed,
   faCalendarDays,
@@ -11,13 +14,9 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { DateRange } from 'react-date-range';
-import 'react-date-range/dist/styles.css';
-import 'react-date-range/dist/theme/default.css';
 import { format } from 'date-fns';
-import { useNavigate } from 'react-router-dom';
 
 function Header({ type }) {
-  const navigate = useNavigate();
   const [destination, setDestination] = useState('');
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
@@ -33,6 +32,8 @@ function Header({ type }) {
     children: 0,
     room: 1,
   });
+
+  const navigate = useNavigate();
 
   const handleOption = (name, operation) => {
     setOptions((prev) => {
